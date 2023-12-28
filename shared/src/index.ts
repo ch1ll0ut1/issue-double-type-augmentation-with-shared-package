@@ -3,7 +3,7 @@ import { HistoryEditor } from "slate-history";
 
 declare module 'slate' {
     interface CustomTypes {
-        Editor: BaseEditor & EventsEditor & HistoryEditor;
+        Editor: LawEditor;
         Element: LawElement;
         Text: TextNode;
     }
@@ -18,6 +18,8 @@ export interface Event {
 export interface EventsEditor extends BaseEditor {
     events: Event[];
 }
+
+export interface LawEditor extends BaseEditor, EventsEditor, HistoryEditor {};
 
 export type LawElement = List | Paragraph;
 
